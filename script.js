@@ -1,4 +1,4 @@
-const time = document.getElementById("stopwatch");
+const timer = document.getElementById("stopwatch");
 
 
 
@@ -8,14 +8,14 @@ var min = 0;
 var sec = 0;
 
 //stoptime variable to monitor start and stop button
-var timer = false;
+var stoptime = true;
 
 
 // on click start event
 
 function startTimer() {
-  if (timer == true) {
-   
+  if (stoptime == true) {
+    stoptime = false;
     timerCycle();
   }
 }
@@ -23,8 +23,8 @@ function startTimer() {
 
 // on click stop event
 function stopTimer() {
-  if (timer == false) {
-    
+  if (stoptime == false) {
+    stoptime = true;
   }
 }
 
@@ -66,7 +66,7 @@ function timerCycle() {
       hr = "0" + hr;
     }
 
-    time.innerHTML = hr + ":" + min + ":" + sec;
+    timer.innerHTML = hr + ":" + min + ":" + sec;
 
     setTimeout("timerCycle()", 1000);
   }
@@ -74,7 +74,7 @@ function timerCycle() {
 
 // on click reset event
 function resetTimer() {
-  time.innerHTML = "00:00:00";
+  timer.innerHTML = "00:00:00";
   stoptime = true;
   hr = 0;
   sec = 0;
